@@ -21,7 +21,7 @@ Fork it, rename it, swap the palette values, and you have a new theme.
 1. Fork this repo (or use "Use this template")
 2. Rename occurrences of `themery` to your theme name (e.g. `moonlightedge`)
 3. Rename directory `lua/themery/` → `lua/moonlightedge/`
-4. Edit `lua/moonlightedge/colors.lua` palette values only first
+4. Edit `lua/moonlightedge/colors.lua` palette values
 5. Load locally with a path plugin spec in your Neovim config
 6. Tweak highlight logic if desired (Treesitter, plugins, etc.)
 7. Add screenshots & publish to GitHub (name your repo moonlightedge.nvim) + a tag
@@ -126,17 +126,6 @@ When you’re ready:
 4. Add screenshots (see below)
 5. Run a quick highlight audit (`:Telescope highlights` or `:Inspect` with Treesitter)
 6. Tag a release: `git tag -a v0.1.0 -m "Initial release" && git push --tags`
-7. (Optional) Add to awesome lists / submit to Neovim theme aggregators
-
-### Screenshot Suggestions
-
-Use a neutral font and show:
-
-- Coding buffer (mixed language) with Treesitter
-- Diff / git signs
-- Completion popup
-- Lualine / statusline
-- Plugin integrations (Snacks dashboard, Neo-tree, etc.)
 
 ## 6. User Installation (Published)
 
@@ -144,11 +133,11 @@ After publishing to GitHub at `user/moonlightedge.nvim`:
 
 ```lua
 return {
-  { "tahayvr/vhs80.nvim", lazy = false, priority = 1000 },
+  { "user/moonlightedge.nvim", lazy = false, priority = 1000 },
   {
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "vhs80",
+			colorscheme = "moonlightedge",
 		},
 	},
 }
@@ -168,7 +157,7 @@ Document them with comments.
 
 ## 10. Contributing Back
 
-If you improve structure (new semantic slot ideas, helper utilities) feel free to open a PR here so all derivative themes can benefit.
+If you improve structure (new semantic slot ideas, helper utilities) feel free to open a PR here.
 
 ---
 
